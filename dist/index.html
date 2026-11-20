@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="my">
+  <head>
+    <style>
+  /* Netlify Badge နှင့် iframe ကို လုံးဝ ဖုံးကွယ်ရန် */
+  #nl-badge, 
+  #nl-badge-frame, 
+  .nl-badge {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+</style>
+<script>
+  // ပေါ်လာသမျှ Netlify badge iframe များကို ချက်ချင်း ဖယ်ရှားရန်
+  function removeNetlifyBadge() {
+    const badgeFrame = document.getElementById('nl-badge-frame');
+    if (badgeFrame) badgeFrame.remove();
+    
+    const badgeBtn = document.getElementById('nl-badge');
+    if (badgeBtn) {
+      let container = badgeBtn.closest('div');
+      if (container) container.remove();
+      else badgeBtn.remove();
+    }
+  }
+
+  // စစချင်းနှင့် Page Load ဖြစ်ချိန်များတွင် ထပ်ခါထပ်ခါ Run မည်
+  if (document.documentElement) {
+    const observer = new MutationObserver(() => removeNetlifyBadge());
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  document.addEventListener('DOMContentLoaded', removeNetlifyBadge);
+  window.addEventListener('load', removeNetlifyBadge);
+  setInterval(removeNetlifyBadge, 100); // အမြဲတမ်း စစ်ဆေးနေမည်
+</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>မြန်မာ ပဟေဠိ ကလေးများ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-Bsn3uuMO.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-cZhDGyaJ.css">
+  </head>
+  <body>
+    <div id="root"></div>
+
+  </body>
+</html>
